@@ -12,7 +12,8 @@ const tvAds = [
     location: 'Food courts & cafes',
     duration: '12 sec',
     src: video1,
-    ottLogo: prime
+    ottLogo: prime,
+    ott: 'Prime Video'
   },
   {
     title: 'City Screen Impact',
@@ -65,10 +66,24 @@ export default function TvAds() {
               style={{ animationDelay: `${index * 0.12}s` }}
             >
               <div className="relative mx-auto max-w-xl">
-                <div className="rounded-[2rem] border-[10px] border-slate-950 bg-slate-950 p-2 shadow-2xl shadow-slate-950/20 dark:border-slate-800 dark:bg-slate-900">
-                  <div className="relative aspect-video overflow-hidden rounded-xl bg-slate-900">
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-orange-500/20 via-transparent to-red-500/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+
+                <div className="relative rounded-[1.9rem] border border-slate-700/80 bg-gradient-to-br from-slate-700 via-slate-950 to-black p-[10px] shadow-[0_28px_70px_rgba(15,23,42,0.30),inset_0_1px_0_rgba(255,255,255,0.14)] transition duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_34px_85px_rgba(15,23,42,0.38)] dark:border-slate-700 dark:shadow-black/40">
+                  <div className="pointer-events-none absolute inset-x-8 top-1 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+
+                  <div className="flex h-7 items-center justify-between px-4">
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-8 rounded-full bg-white/15" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]" />
+                    </div>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                      Naik TV
+                    </span>
+                  </div>
+
+                  <div className="relative h-[360px] overflow-hidden rounded-[1.1rem] border border-white/10 bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_45px_rgba(15,23,42,0.85)] sm:h-[440px] lg:h-[520px]">
                     <video
-                      className="h-full w-full object-cover"
+                      className="h-full w-full bg-black object-contain"
                       src={ad.src}
                       autoPlay
                       muted
@@ -78,19 +93,36 @@ export default function TvAds() {
                     >
                       Your browser does not support the video tag.
                     </video>
-                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.22),transparent_38%,transparent_62%,rgba(255,255,255,0.08))]" />
-                    <div className="pointer-events-none absolute top-2 flex h-9 min-w-20 rounded-full px-3">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(4, 2, 2, 0.14),transparent_34%),linear-gradient(115deg,rgba(255,255,255,0.20),transparent_31%,transparent_70%,rgba(255,255,255,0.08))]" />
+                    <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+                    <div className="pointer-events-none absolute left-3 top-3 flex h-10 min-w-24 rounded-full">
                       <img
-                        className="max-h-5 max-w-24 object-contain"
+                        className="max-h-6 max-w-24 object-contain"
                         src={ad.ottLogo}
                         alt={`${ad.ott} logo`}
                       />
                     </div>
                   </div>
+
+                  <div className="flex h-8 items-center justify-between px-5">
+                    <div className="flex items-center gap-1">
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                    </div>
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange-400 shadow-[0_0_14px_rgba(251,146,60,0.85)]" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <span className="h-1 w-1 rounded-full bg-white/20" />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mx-auto h-5 w-24 bg-slate-950 dark:bg-slate-800" />
-                <div className="mx-auto h-3 w-44 rounded-t-lg bg-slate-900 dark:bg-slate-700" />
+                <div className="mx-auto h-6 w-20 bg-gradient-to-b from-slate-800 via-slate-950 to-black shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] dark:from-slate-700 dark:via-slate-900 dark:to-black" />
+                <div className="mx-auto h-3 w-52 rounded-t-2xl bg-gradient-to-r from-slate-950 via-slate-700 to-slate-950 shadow-[0_10px_22px_rgba(15,23,42,0.22)] dark:from-black dark:via-slate-700 dark:to-black" />
               </div>
 
               <div className="mt-5 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-slate-800 dark:bg-slate-900">
