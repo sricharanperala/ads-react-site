@@ -1,4 +1,4 @@
-import { ArrowRight, Play } from 'lucide-react';
+// import { ArrowRight, Play } from 'lucide-react';
 import Heropic from '../assets/HeroPic.jpeg';
 
 export default function Hero() {
