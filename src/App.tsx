@@ -39,7 +39,7 @@ function App() {
         />
         <Hero />
         <Services />
-        <TvAds />
+        {/* <TvAds /> */}
         <TrustChoose />
         <AboutUs />
         {/* <Testimonials /> */}

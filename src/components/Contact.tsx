@@ -1,6 +1,12 @@
-import { Phone, MapPin, Mail, Send } from 'lucide-react';
+import { Camera, MapPin, MessageCircle, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 import locationPic from '../assets/location.jpeg';
+
+const primaryPhone = '+919849138850';
+const secondaryPhone = '+917013554415';
+const whatsappNumber = '919849138850';
+const instagramUrl = 'https://www.instagram.com/naikmediaads/';
+const mapUrl = 'https://www.google.com/maps/search/?api=1&query=31-3-821%20Waddepally%2C%20Hanamkonda%2C%20Telangana';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,7 +26,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
+    if (formData.name && formData.phone && formData.message) {
       setSubmitted(true);
       setFormData({ name: '', email: '', phone: '', company: '', message: '' });
       setTimeout(() => setSubmitted(false), 5000);
@@ -39,18 +45,18 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slideInLeft">
             <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Phone className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Call Us</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">We're here to help</p>
-            <a href="tel:+919849138850" className="text-orange-600 dark:text-orange-400 font-semibold hover:underline">
+            <a href={`tel:${primaryPhone}`} className="text-orange-600 dark:text-orange-400 font-semibold hover:underline">
               +91 98491 38850
             </a>
             <p className="text-gray-600 dark:text-gray-400 mt-2">
-              <a href="tel:+917013554415" className="hover:text-orange-600 dark:hover:text-orange-400">
+              <a href={`tel:${secondaryPhone}`} className="hover:text-orange-600 dark:hover:text-orange-400">
                 +91 70135 54415
               </a>
             </p>
@@ -62,9 +68,14 @@ export default function Contact() {
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Visit Us</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">Our office location</p>
-            <p className="font-semibold text-gray-900 dark:text-white">
+            <a
+              href={mapUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-gray-900 dark:text-white hover:text-orange-600 dark:hover:text-orange-400 transition"
+            >
               31-3-821 Waddepally
-            </p>
+            </a>
             <p className="text-gray-600 dark:text-gray-400">
               Hanamkonda, Telangana
             </p>
@@ -72,12 +83,33 @@ export default function Contact() {
 
           <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slideInRight">
             <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Mail className="w-8 h-8 text-white" />
+              <MessageCircle className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Email Us</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">Send us a message</p>
-            <a href="mailto:info@naikmediaads.com" className="text-orange-600 dark:text-orange-400 font-semibold hover:underline">
-              info@naikmediaads.com
+            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">WhatsApp</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">Chat with our team</p>
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-orange-600 dark:text-orange-400 font-semibold hover:underline"
+            >
+              +91 98491 38850
+            </a>
+          </div>
+
+          <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slideInRight">
+            <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Camera className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Instagram</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">Follow our latest work</p>
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-orange-600 dark:text-orange-400 font-semibold hover:underline"
+            >
+              @naikmediaads
             </a>
           </div>
         </div>
@@ -116,7 +148,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
                     Email Address
                   </label>
@@ -129,7 +161,7 @@ export default function Contact() {
                     className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
                     placeholder="john@example.com"
                   />
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
@@ -140,12 +172,13 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
                     placeholder="+91 98491 38850"
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
                     Company
                   </label>
@@ -157,7 +190,7 @@ export default function Contact() {
                     className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
                     placeholder="Your Company"
                   />
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">

@@ -66,7 +66,7 @@ export default function Hero() {
               </div>
                <div>
                 <p className="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
-                  60+
+                  60
                 </p>
                 <p className="text-gray-600 dark:text-gray-400">Digital Screens</p>
               </div>

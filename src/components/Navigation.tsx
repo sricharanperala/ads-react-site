@@ -1,4 +1,5 @@
 import { Sun, Moon, Menu, X } from 'lucide-react';
+import logo from '../assets/NaikMediaLogo.png';
 
 interface NavigationProps {
   isDark: boolean;
@@ -15,7 +16,7 @@ export default function Navigation({
 }: NavigationProps) {
   const navLinks = [
     { label: 'Services', href: '#services' },
-    { label: 'TV Ads', href: '#tv-ads' },
+    // { label: 'TV Ads', href: '#tv-ads' },
     { label: 'Trusted By', href: '#trusted-by' },
     { label: 'Why Choose Us', href: '#why-choose-us' },
     { label: 'About Us', href: '#about-us' },
@@ -28,13 +29,12 @@ export default function Navigation({
     <nav className="fixed top-0 w-full bg-white dark:bg-slate-950 shadow-lg dark:shadow-2xl z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">N</span>
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
-              Naik Media Ads
-            </span>
+          <div className="flex items-center">
+            <img
+              src={logo}
+              alt="Naik Media Ads"
+              className="h-12 w-auto object-contain"
+            />
           </div>
 
           <div className="hidden md:flex items-center space-x-8">

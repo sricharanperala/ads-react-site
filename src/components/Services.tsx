@@ -3,18 +3,19 @@ import { BarChart3, CheckCircle2, Palette, Smartphone, Tv, Video, X, Zap } from 
 import heroImage from '../assets/hero.png';
 import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
+import TvAds from './TvAds';
 
 const services = [
   {
     icon: Tv,
     title: 'Premium Apartment Screens',
-    description: '32-inch high-definition digital screens strategically placed in high-end residential lift areas for maximum daily visibility.',
-    features: ['32" LED Screens', '30-day rotations', 'Video support'],
+    description: '32-inch high-definition digital screens strategically placed in premium residential lift areas for maximum daily visibility.',
+    features: ['32" LED Screen', '30-day rotations', 'Video support'],
     images: [heroImage, locationImage],
   },
   {
     icon: Video,
-    title: 'Cinema & OTT',
+    title: 'OTT Platform',
     description: 'Captivate a captive audience. Dominate the big screen in cinema theaters and targeted advertisements on leading OTT platforms.',
     features: ['4K Recording', 'Professional editing', 'Motion graphics'],
     images: [heroPic, heroImage],
@@ -49,9 +50,18 @@ const services = [
   },
 ];
 
+const allowedIcons = ["Premium Apartment Screens","OTT Platform"];
+
 export default function Services() {
   const [selectedService, setSelectedService] = useState<(typeof services)[number] | null>(null);
   const SelectedIcon = selectedService?.icon;
+  console.log(selectedService,"selectedService")
+
+  const handleOpenModal = (service: any) => {
+    if (allowedIcons.includes(service.title)) {
+      setSelectedService(service)
+    }
+  }
 
   return (
     <section id="services" className="py-20 bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
@@ -97,8 +107,11 @@ export default function Services() {
 
                 <button
                   type="button"
-                  onClick={() => setSelectedService(service)}
-                  className="mt-6 w-full px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 transition duration-300 font-semibold"
+                  onClick={() => handleOpenModal(service)}
+                  className={`mt-6 w-full px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg transition duration-300 font-semibold ${allowedIcons.includes(service.title)
+                      ? "hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500"
+                      : ""
+                    }`}
                 >
                   Learn More
                 </button>
@@ -107,6 +120,7 @@ export default function Services() {
           })}
         </div>
       </div>
+      <TvAds />
 
       {selectedService && (
         <div
