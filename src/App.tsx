@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import TvAds from './components/TvAds';
+// import TvAds from './components/TvAds';
 import TrustChoose from './components/TrustChoose';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
