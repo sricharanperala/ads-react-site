@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BarChart3, CheckCircle2, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
+import { BarChart3, CheckCircle2, ChevronLeft, ChevronRight, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
 import heroImage from '../assets/hero.png';
 import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
@@ -7,6 +7,9 @@ import TvAds from './TvAds';
 import ottImage from "../assets/services/ott-social.jpeg"
 import apartmentImage1 from "../assets/services/apartment1.jpeg"
 import apartmentImage2 from "../assets/services/apartment2.jpeg"
+import roadvan from "../assets/services/roadvan.jpeg"
+import hoarding from "../assets/services/hoarding.jpeg"
+
 
 const services = [
   {
@@ -14,7 +17,8 @@ const services = [
     title: 'Premium Apartment Screens',
     description: '32-inch high-definition digital screens strategically placed in premium residential lift areas for maximum daily visibility.',
     features: ['32" LED Screen', '30-day rotations', 'Video support'],
-    images: [apartmentImage1],
+    images: [apartmentImage1, apartmentImage2],
+    imageAspect: 'portrait',
     accent: 'from-red-600 to-orange-500',
     tint: 'bg-red-50',
     text: 'text-red-600',
@@ -26,6 +30,7 @@ const services = [
     description: 'Captivate a captive audience. Dominate the big screen in cinema theaters and targeted advertisements on leading OTT platforms.',
     features: ['4K Recording', 'Professional editing', 'Motion graphics'],
     images: [ottImage],
+    imageAspect: 'landscape',
     accent: 'from-blue-600 to-cyan-500',
     tint: 'bg-blue-50',
     text: 'text-blue-600',
@@ -36,7 +41,8 @@ const services = [
     title: 'Road Show Mobile Vans',
     description: 'Take your brand to the streets. High-impact mobile advertising that drives your message directly to your target demographics.',
     features: ['Logo design', 'Brand guidelines', 'Visual identity'],
-    images: [locationImage, heroPic],
+    images: [roadvan],
+    imageAspect: 'landscape',
     accent: 'from-teal-600 to-emerald-500',
     tint: 'bg-teal-50',
     text: 'text-teal-600',
@@ -48,6 +54,7 @@ const services = [
     description: 'Broad audio-visual reach through trusted local cable networks and top FM radio stations.',
     features: ['Social media', 'SEO optimization', 'Analytics'],
     images: [heroImage],
+    imageAspect: 'landscape',
     accent: 'from-amber-500 to-yellow-500',
     tint: 'bg-amber-50',
     text: 'text-amber-600',
@@ -58,7 +65,8 @@ const services = [
     title: 'Outdoor LED & Hoardings',
     description: 'Massive 10x20 highway hoarding boards and outdoor LED screens to capture high-traffic commute zones.',
     features: ['SMS campaigns', 'App advertising', 'Location targeting'],
-    images: [locationImage, heroImage],
+    images: [hoarding],
+    imageAspect: 'landscape',
     accent: 'from-fuchsia-600 to-pink-500',
     tint: 'bg-fuchsia-50',
     text: 'text-fuchsia-600',
@@ -70,6 +78,7 @@ const services = [
     description: 'Establish authority by placing your brand alongside breaking news on major regional satellite channels.',
     features: ['Conversion tracking', 'A/B testing', 'ROI optimization'],
     images: [locationImage],
+    imageAspect: 'landscape',
     accent: 'from-violet-600 to-blue-500',
     tint: 'bg-violet-50',
     text: 'text-violet-600',
@@ -77,18 +86,34 @@ const services = [
   },
 ];
 
-const allowedIcons = ["Premium Apartment Screens","OTT Platform"];
+const allowedIcons = ["Premium Apartment Screens","OTT Platform","Road Show Mobile Vans","Outdoor LED & Hoardings"];
+type Service = (typeof services)[number];
 
 export default function Services() {
-  const [selectedService, setSelectedService] = useState<(typeof services)[number] | null>(null);
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const SelectedIcon = selectedService?.icon;
   const modalImages = selectedService?.images ?? [];
   const hasSingleModalImage = modalImages.length === 1;
-  const handleOpenModal = (service: any) => {
+  const hasMultipleModalImages = modalImages.length > 1;
+  const isPortraitModalImage = selectedService?.imageAspect === 'portrait';
+  const currentModalImage = modalImages[currentImageIndex] ?? modalImages[0];
+
+  const handleOpenModal = (service: Service) => {
     if (allowedIcons.includes(service.title)) {
+      setCurrentImageIndex(0);
       setSelectedService(service)
     }
   }
+
+  const showPreviousImage = () => {
+    setCurrentImageIndex((index) => (index === 0 ? modalImages.length - 1 : index - 1));
+  };
+
+  const showNextImage = () => {
+    setCurrentImageIndex((index) => (index === modalImages.length - 1 ? 0 : index + 1));
+  };
+  
 
   return (
     <section id="services" className="py-20 bg-white">
@@ -170,26 +195,61 @@ export default function Services() {
               <X className="h-5 w-5" />
             </button>
 
-            <div className="grid gap-0 lg:grid-cols-[1fr_1.1fr]">
-              <div
-                className={`grid bg-gray-50 p-3 sm:p-4 ${
-                  hasSingleModalImage
-                    ? 'grid-cols-1'
-                    : 'grid-cols-2 gap-2 lg:grid-cols-1'
-                }`}
-              >
-                {modalImages.map((image, index) => (
+            <div className="grid gap-0 lg:grid-cols-[minmax(280px,0.85fr)_1fr]">
+              <div className="flex items-center justify-center bg-gray-50 p-3 sm:p-4">
+                <div className="relative flex w-full items-center justify-center">
+                  {currentModalImage && (
                   <img
-                    key={`${selectedService.title}-${index}`}
-                    src={image}
-                    alt={`${selectedService.title} sample ${index + 1}`}
-                    className={`w-full rounded-xl object-contain shadow-sm ${
+                    src={currentModalImage}
+                    alt={`${selectedService.title} sample ${currentImageIndex + 1}`}
+                    className={`rounded-xl object-contain shadow-sm ${
                       hasSingleModalImage
-                        ? 'h-72 sm:h-96 lg:h-full lg:min-h-[520px]'
-                        : 'h-44 sm:h-56 lg:h-64'
+                        ? isPortraitModalImage
+                          ? 'h-auto max-h-[72vh] w-auto max-w-full aspect-[9/16]'
+                          : 'h-auto max-h-[70vh] w-full max-w-full aspect-[3/2]'
+                        : isPortraitModalImage
+                          ? 'h-auto max-h-[72vh] w-auto max-w-full aspect-[9/16]'
+                          : 'h-auto max-h-[70vh] w-full max-w-full aspect-[3/2]'
                     }`}
                   />
-                ))}
+                  )}
+
+                  {hasMultipleModalImages && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={showPreviousImage}
+                        className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:bg-gray-950 hover:text-white"
+                        aria-label="Show previous image"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={showNextImage}
+                        className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:bg-gray-950 hover:text-white"
+                        aria-label="Show next image"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+
+                      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-white/90 px-3 py-2 shadow-lg">
+                        {modalImages.map((_, index) => (
+                          <button
+                            key={`${selectedService.title}-dot-${index}`}
+                            type="button"
+                            onClick={() => setCurrentImageIndex(index)}
+                            className={`h-2.5 w-2.5 rounded-full transition ${
+                              index === currentImageIndex ? 'bg-gray-950' : 'bg-gray-300 hover:bg-gray-500'
+                            }`}
+                            aria-label={`Show image ${index + 1}`}
+                            aria-current={index === currentImageIndex ? 'true' : undefined}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
 
               <div className="p-6 sm:p-8">

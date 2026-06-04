@@ -1,5 +1,5 @@
 // import { ArrowRight, Play } from 'lucide-react';
-import Heropic from '../assets/HeroPic.jpeg';
+import Heropic from '../assets/hero1.jpeg';
 
 export default function Hero() {
   return (
@@ -84,7 +84,7 @@ export default function Hero() {
               <img
                 src={Heropic}
                 alt="Digital Advertising"
-                className="relative w-full h-full object-contain rounded-3xl"
+                className="relative w-full h-full rounded-3xl"
               />
             </div>
           </div>
