@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BarChart3, CheckCircle2, ChevronLeft, ChevronRight, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
 import heroImage from '../assets/hero.png';
-import heroPic from '../assets/HeroPic.jpeg';
+// import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
 import TvAds from './TvAds';
 import ottImage from "../assets/services/ott-social.jpeg"

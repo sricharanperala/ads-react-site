@@ -78,7 +78,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="animate-slideInRight hidden md:block">
+          <div className="animate-slideInRight">
             <div className="relative h-[430px] rounded-3xl border border-gray-200 bg-white shadow-2xl shadow-gray-200/70">
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-red-500 via-amber-400 to-blue-500 opacity-20 blur-xl"></div>
               <img
