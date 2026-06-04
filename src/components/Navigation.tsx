@@ -1,16 +1,12 @@
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import logo from '../assets/NaikMediaLogo.png';
 
 interface NavigationProps {
-  isDark: boolean;
-  setIsDark: (isDark: boolean) => void;
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
 }
 
 export default function Navigation({
-  isDark,
-  setIsDark,
   mobileMenuOpen,
   setMobileMenuOpen,
 }: NavigationProps) {
@@ -26,7 +22,7 @@ export default function Navigation({
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white dark:bg-slate-950 shadow-lg dark:shadow-2xl z-50 transition-colors duration-300">
+    <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/95 shadow-sm backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -42,7 +38,7 @@ export default function Navigation({
               <a
                 key={link.label}
                 href={link.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition duration-300 font-medium"
+                className="text-gray-700 hover:text-red-600 transition duration-300 font-medium"
               >
                 {link.label}
               </a>
@@ -51,19 +47,8 @@ export default function Navigation({
 
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => setIsDark(!isDark)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 transition"
-            >
-              {isDark ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
-              ) : (
-                <Moon className="w-5 h-5 text-slate-700" />
-              )}
-            </button>
-
-            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-slate-800"
+              className="md:hidden p-2 rounded-lg bg-gray-100 text-gray-900 transition hover:bg-red-50 hover:text-red-600"
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -80,7 +65,7 @@ export default function Navigation({
               <a
                 key={link.label}
                 href={link.href}
-                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition"
+                className="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}

@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html.dark {
-    @apply bg-slate-950;
-    color-scheme: dark;
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -118,11 +111,6 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dark .glass-effect {
-  background: rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (prefers-reduced-motion: reduce) {

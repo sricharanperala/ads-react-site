@@ -52,13 +52,13 @@ const pricingPlans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section id="pricing" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fadeInUp">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Simple, Transparent <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">Pricing</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the perfect plan for your business needs
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function Pricing() {
               className={`rounded-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fadeInUp ${
                 plan.highlighted
                   ? 'bg-gradient-to-br from-red-600 to-orange-500 text-white shadow-2xl scale-105 md:scale-110'
-                  : 'bg-gray-50 dark:bg-slate-800 shadow-lg hover:shadow-xl'
+                  : 'border border-gray-200 bg-white shadow-sm hover:shadow-xl'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -81,19 +81,19 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <h3 className={`text-2xl font-bold mb-2 ${!plan.highlighted ? 'text-gray-900 dark:text-white' : ''}`}>
+                <h3 className={`text-2xl font-bold mb-2 ${!plan.highlighted ? 'text-gray-900' : ''}`}>
                   {plan.name}
                 </h3>
 
-                <p className={`text-sm mb-6 ${plan.highlighted ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'}`}>
+                <p className={`text-sm mb-6 ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
                   {plan.description}
                 </p>
 
                 <div className="mb-6">
-                  <span className={`text-5xl font-bold ${!plan.highlighted ? 'text-gray-900 dark:text-white' : ''}`}>
+                  <span className={`text-5xl font-bold ${!plan.highlighted ? 'text-gray-900' : ''}`}>
                     {plan.price}
                   </span>
-                  <span className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'}`}>
+                  <span className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
                     {plan.period}
                   </span>
                 </div>
@@ -113,7 +113,7 @@ export default function Pricing() {
                   {plan.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <Check className={`w-5 h-5 flex-shrink-0 ${plan.highlighted ? 'text-white' : 'text-orange-500'}`} />
-                      <span className={`text-sm ${plan.highlighted ? 'text-white/90' : 'text-gray-700 dark:text-gray-300'}`}>
+                      <span className={`text-sm ${plan.highlighted ? 'text-white/90' : 'text-gray-700'}`}>
                         {feature}
                       </span>
                     </div>
@@ -124,11 +124,11 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-orange-50 to-red-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 text-center animate-fadeInUp">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="mt-16 rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm animate-fadeInUp">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Need a Custom Plan?
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-gray-600 mb-6">
             Let's discuss your unique requirements and create a tailored solution for your business
           </p>
           <button className="px-8 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg font-semibold hover:shadow-lg transition duration-300">

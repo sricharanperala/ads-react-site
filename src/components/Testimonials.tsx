@@ -56,13 +56,13 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
+    <section id="testimonials" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fadeInUp">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             What Our <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">Clients Say</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real feedback from satisfied clients who trusted us with their brand
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function Testimonials() {
               return (
                 <div
                   key={offset}
-                  className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fadeInUp"
+                  className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fadeInUp"
                   style={{ animationDelay: `${offset * 0.1}s` }}
                 >
                   <div className="flex gap-1 mb-4">
@@ -84,7 +84,7 @@ export default function Testimonials() {
                     ))}
                   </div>
 
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+                  <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                     "{testimonial.text}"
                   </p>
 
@@ -95,10 +95,10 @@ export default function Testimonials() {
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white">
+                      <h4 className="font-bold text-gray-900">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-gray-600">
                         {testimonial.role} at {testimonial.company}
                       </p>
                     </div>
@@ -131,7 +131,7 @@ export default function Testimonials() {
                 className={`w-3 h-3 rounded-full transition duration-300 ${
                   index === currentIndex
                     ? 'bg-gradient-to-r from-red-600 to-orange-500 w-8'
-                    : 'bg-gray-300 dark:bg-slate-600'
+                    : 'bg-gray-300'
                 }`}
               ></button>
             ))}

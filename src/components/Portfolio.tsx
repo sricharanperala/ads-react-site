@@ -55,13 +55,13 @@ export default function Portfolio() {
     filter === 'All' ? portfolioItems : portfolioItems.filter((item) => item.category === filter);
 
   return (
-    <section id="portfolio" className="overflow-hidden py-16 sm:py-20 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section id="portfolio" className="overflow-hidden bg-white py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fadeInUp">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Our <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">Portfolio</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Showcase of our best work and successful campaigns
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function Portfolio() {
               className={`max-w-full rounded-full px-4 py-2 text-sm font-semibold transition duration-300 sm:px-6 sm:text-base ${
                 filter === category
                   ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-lg'
-                  : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {category}
@@ -86,10 +86,10 @@ export default function Portfolio() {
           {filteredItems.map((item, index) => (
             <div
               key={index}
-              className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800 animate-fadeInUp"
+              className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeInUp"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300 sm:aspect-[16/11] dark:from-slate-700 dark:to-slate-600">
+              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 sm:aspect-[16/11]">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -115,19 +115,19 @@ export default function Portfolio() {
               </div>
 
               <div className="flex flex-1 flex-col p-5 sm:p-6">
-                <span className="mb-3 inline-block w-fit max-w-full rounded-full bg-orange-100 px-3 py-1 text-sm font-semibold text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
+                <span className="mb-3 inline-block w-fit max-w-full rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-600 ring-1 ring-blue-100">
                   {item.category}
                 </span>
 
-                <h3 className="mb-2 break-words text-xl font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-2 break-words text-xl font-bold text-gray-900">
                   {item.title}
                 </h3>
 
-                <p className="mb-4 break-words text-sm text-gray-600 dark:text-gray-400">
+                <p className="mb-4 break-words text-sm text-gray-600">
                   {item.description}
                 </p>
 
-                <div className="mt-auto border-t border-gray-200 pt-4 dark:border-slate-700">
+                <div className="mt-auto border-t border-gray-200 pt-4">
                   <p className="break-words text-sm font-semibold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
                     {item.results}
                   </p>
