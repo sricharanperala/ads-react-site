@@ -96,7 +96,7 @@
 }
 
 .trusted-marquee-track {
-  animation: trustedMarquee 22s linear infinite;
+  animation: trustedMarquee 60s linear infinite;
 }
 
 .trusted-marquee:hover .trusted-marquee-track {

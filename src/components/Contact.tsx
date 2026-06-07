@@ -6,10 +6,10 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 const primaryPhone = '+919849138850';
-const secondaryPhone = '+917013554415';
+const secondaryPhone = '+91 70135 54415';
 const whatsappNumber = '919849138850';
 const instagramUrl = 'https://www.instagram.com/naikmediaads/';
-const mapUrl = 'https://www.google.com/maps/search/?api=1&query=31-3-821%20Waddepally%2C%20Hanamkonda%2C%20Telangana';
+const mapUrl = 'https://maps.app.goo.gl/9iY7pUqj2J1tFcry7';
 
 const contactActions = [
   {
@@ -17,7 +17,7 @@ const contactActions = [
     label: 'Call Us',
     description: 'Speak directly with our team',
     value: '+91 98491 38850',
-    supporting: secondaryPhone,
+    secondaryPhone: secondaryPhone,
     href: `tel:${primaryPhone}`,
     accent: 'from-red-600 to-orange-500',
     hover: 'hover:border-red-200',
@@ -146,6 +146,9 @@ export default function Contact() {
                 </p>
                 <p className={`font-semibold ${item.text}`}>
                   {item.value}
+                </p>
+                  <p className={`font-semibold ${item.text}`}>
+                  {item.secondaryPhone}
                 </p>
                 <p className="mt-1 text-sm text-gray-500">
                   {item.supporting}

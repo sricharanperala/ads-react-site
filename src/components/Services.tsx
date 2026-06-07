@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BarChart3, CheckCircle2, ChevronLeft, ChevronRight, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
 import heroImage from '../assets/hero.png';
 // import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
 import TvAds from './TvAds';
-import ottImage from "../assets/services/ott-social.jpeg"
-import apartmentImage1 from "../assets/services/apartment1.jpeg"
-import apartmentImage2 from "../assets/services/apartment2.jpeg"
+// import apartmentImage1 from "../assets/services/apartment/apartment1.jpeg"
+import apartmentImage2 from "../assets/services/apartment/apartment2.jpeg"
+import apartmentImage3 from "../assets/services/apartment/apartment3.jpeg"
 import roadvan from "../assets/services/roadvan.jpeg"
 import hoarding from "../assets/services/hoarding.jpeg"
+import hotstart from "../assets/services/OTT/jiohotstar.jpeg"
+import prime from "../assets/services/OTT/prime.jpeg"
+import netflix from "../assets/services/OTT/netflix.jpeg" 
+import youtube from "../assets/services/OTT/youtube.jpeg"
 
 
 const services = [
@@ -16,8 +20,8 @@ const services = [
     icon: Tv,
     title: 'Premium Apartment Screens',
     description: '32-inch high-definition digital screens strategically placed in premium residential lift areas for maximum daily visibility.',
-    features: ['32" LED Screen', '30-day rotations', 'Video support'],
-    images: [apartmentImage1, apartmentImage2],
+    features: ['32" LED Screen', '⁠Daily 300+ slots \u00A0\u00A0\u00A0 in 1 screen', '⁠10 seconds  \u00A0\u00A0\u00A0\u00A0\u00A0  video / image', '⁠Every 3 minutes \u00A0\u00A0\u00A0\u00A0\u00A0\ 1 slot', '⁠7am to 10pm'],
+    images: [apartmentImage2, apartmentImage3],
     imageAspect: 'portrait',
     accent: 'from-red-600 to-orange-500',
     tint: 'bg-red-50',
@@ -28,8 +32,8 @@ const services = [
     icon: Video,
     title: 'OTT Platform',
     description: 'Captivate a captive audience. Dominate the big screen in cinema theaters and targeted advertisements on leading OTT platforms.',
-    features: ['4K Recording', 'Professional editing', 'Motion graphics'],
-    images: [ottImage],
+    features: ['YouTube', 'Jio Hotstar', 'Prime Video', 'Netflix'],
+    images: [hotstart,prime,netflix,youtube],
     imageAspect: 'landscape',
     accent: 'from-blue-600 to-cyan-500',
     tint: 'bg-blue-50',
@@ -92,6 +96,7 @@ type Service = (typeof services)[number];
 export default function Services() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalImageLoading, setIsModalImageLoading] = useState(false);
   const SelectedIcon = selectedService?.icon;
   const modalImages = selectedService?.images ?? [];
   const hasSingleModalImage = modalImages.length === 1;
@@ -99,9 +104,37 @@ export default function Services() {
   const isPortraitModalImage = selectedService?.imageAspect === 'portrait';
   const currentModalImage = modalImages[currentImageIndex] ?? modalImages[0];
 
+  useEffect(() => {
+    if (!currentModalImage) {
+      setIsModalImageLoading(false);
+      return;
+    }
+
+    let isActive = true;
+    const image = new Image();
+
+    setIsModalImageLoading(true);
+    image.onload = () => {
+      if (isActive) {
+        setIsModalImageLoading(false);
+      }
+    };
+    image.onerror = () => {
+      if (isActive) {
+        setIsModalImageLoading(false);
+      }
+    };
+    image.src = currentModalImage;
+
+    return () => {
+      isActive = false;
+    };
+  }, [currentModalImage]);
+
   const handleOpenModal = (service: Service) => {
     if (allowedIcons.includes(service.title)) {
       setCurrentImageIndex(0);
+      setIsModalImageLoading(true);
       setSelectedService(service)
     }
   }
@@ -197,12 +230,27 @@ export default function Services() {
 
             <div className="grid gap-0 lg:grid-cols-[minmax(280px,0.85fr)_1fr]">
               <div className="flex items-center justify-center bg-gray-50 p-3 sm:p-4">
-                <div className="relative flex w-full items-center justify-center">
+                <div
+                  className={`relative flex w-full items-center justify-center rounded-xl bg-white ${
+                    isPortraitModalImage ? 'min-h-[60vh]' : 'min-h-[260px] sm:min-h-[360px]'
+                  }`}
+                  aria-busy={isModalImageLoading}
+                >
+                  {isModalImageLoading && (
+                    <div className="absolute inset-0 z-[1] flex items-center justify-center rounded-xl bg-gray-100">
+                      <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-orange-500" />
+                    </div>
+                  )}
+
                   {currentModalImage && (
                   <img
                     src={currentModalImage}
                     alt={`${selectedService.title} sample ${currentImageIndex + 1}`}
-                    className={`rounded-xl object-contain shadow-sm ${
+                    onLoad={() => setIsModalImageLoading(false)}
+                    onError={() => setIsModalImageLoading(false)}
+                    className={`rounded-xl object-contain shadow-sm transition-opacity duration-300 ${
+                      isModalImageLoading ? 'opacity-0' : 'opacity-100'
+                    } ${
                       hasSingleModalImage
                         ? isPortraitModalImage
                           ? 'h-auto max-h-[72vh] w-auto max-w-full aspect-[9/16]'
@@ -272,9 +320,9 @@ export default function Services() {
                 </p>
 
                 <div className="mb-8">
-                  <h4 className="mb-4 text-lg font-bold text-gray-900">
+                  {/* <h4 className="mb-4 text-lg font-bold text-gray-900">
                     Included Features
-                  </h4>
+                  </h4> */}
                   <div className="grid gap-3 sm:grid-cols-2">
                     {selectedService.features.map((feature) => (
                       <div
@@ -282,7 +330,7 @@ export default function Services() {
                         className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-3 text-sm font-medium text-gray-700"
                       >
                         <CheckCircle2 className="h-5 w-5 shrink-0 text-orange-500" />
-                        <span>{feature}</span>
+                        <span>{feature.toUpperCase()}</span>
                       </div>
                     ))}
                   </div>
