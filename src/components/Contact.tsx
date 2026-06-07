@@ -1,6 +1,7 @@
 import { ExternalLink, MapPin, MessageCircle, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
-import locationPic from '../assets/location.jpeg';
+// import locationPic from '../assets/location.jpeg';
+import locationPic from '../assets/locationNew.jpeg';
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
