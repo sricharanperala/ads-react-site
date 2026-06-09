@@ -26,7 +26,7 @@ import bajaj from "../assets/clientIcons/bajajfin.jpg"
 import boost from "../assets/clientIcons/Boost.png"
 import dairyday from "../assets/clientIcons/dairyday.jpg"
 import falcon from "../assets/clientIcons/falcon.png"
-import mukundha from "../assets/clientIcons/mukundha.png"
+import mukundha from "../assets/clientIcons/mukundhaa.png"
 import neoan from "../assets/clientIcons/nexon_paints_logo.jpg"
 import navadurga from "../assets/clientIcons/navadurga.png"
 import grameena from "../assets/clientIcons/grameenabank.jpg"
@@ -46,7 +46,7 @@ import JSWCement from "../assets/clientIcons/jsw.jpg"
 import SupremePipes from "../assets/clientIcons/supreme.jpg"
 import RoyalOakFurniture from "../assets/clientIcons/royaloak.png"
 import SkillStorkSchool from "../assets/clientIcons/skillstork.png"
-import AnjaliKidneyCare from "../assets/clientIcons/anjalikidney.png"
+import AnjaliKidneyCare from "../assets/clientIcons/anjali-kidney.avif"
 import DrSaiCharanKidsNeuro from "../assets/clientIcons/dr.saichandra.jpg"
 
 
@@ -170,7 +170,7 @@ export default function TrustChoose() {
                     </span>
                   ) : (
                     <span className="flex h-28 w-28 items-center justify-center rounded-full border border-gray-500 bg-white p-3 leading-tight shadow-sm ring-1 ring-gray-300">
-                      {brand.name}
+                      {/* {brand.name} */}
                     </span>
                   )}
                 </div>
