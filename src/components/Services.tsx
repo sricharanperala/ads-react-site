@@ -34,7 +34,8 @@ const services = [
     description: 'Captivate a captive audience. Dominate the big screen in cinema theaters and targeted advertisements on leading OTT platforms.',
     features: ['YouTube', 'Jio Hotstar', 'Prime Video', 'Netflix'],
     images: [hotstart,prime,netflix,youtube],
-    imageAspect: 'landscape',
+    imageAspect: 'portrait',
+    imageFit: 'cover',
     accent: 'from-blue-600 to-cyan-500',
     tint: 'bg-blue-50',
     text: 'text-blue-600',
@@ -102,6 +103,7 @@ export default function Services() {
   const hasSingleModalImage = modalImages.length === 1;
   const hasMultipleModalImages = modalImages.length > 1;
   const isPortraitModalImage = selectedService?.imageAspect === 'portrait';
+  const shouldCoverModalImage = selectedService?.imageFit === 'cover';
   const currentModalImage = modalImages[currentImageIndex] ?? modalImages[0];
 
   useEffect(() => {
@@ -248,15 +250,17 @@ export default function Services() {
                     alt={`${selectedService.title} sample ${currentImageIndex + 1}`}
                     onLoad={() => setIsModalImageLoading(false)}
                     onError={() => setIsModalImageLoading(false)}
-                    className={`rounded-xl object-contain shadow-sm transition-opacity duration-300 ${
+                    className={`rounded-xl shadow-sm transition-opacity duration-300 ${
+                      shouldCoverModalImage ? 'object-cover' : 'object-contain'
+                    } ${
                       isModalImageLoading ? 'opacity-0' : 'opacity-100'
                     } ${
                       hasSingleModalImage
                         ? isPortraitModalImage
-                          ? 'h-auto max-h-[72vh] w-auto max-w-full aspect-[9/16]'
+                          ? 'aspect-[9/16] h-[64vh] max-h-[620px] min-h-[340px] w-auto max-w-full'
                           : 'h-auto max-h-[70vh] w-full max-w-full aspect-[3/2]'
                         : isPortraitModalImage
-                          ? 'h-auto max-h-[72vh] w-auto max-w-full aspect-[9/16]'
+                          ? 'aspect-[9/16] h-[64vh] max-h-[620px] min-h-[340px] w-auto max-w-full'
                           : 'h-auto max-h-[70vh] w-full max-w-full aspect-[3/2]'
                     }`}
                   />
