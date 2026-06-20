@@ -30,10 +30,10 @@ const services = [
   },
   {
     icon: Video,
-    title: 'OTT Platform',
+    title: 'OTT Platforms',
     description: 'Captivate a captive audience. Dominate the big screen in cinema theaters and targeted advertisements on leading OTT platforms.',
     features: ['YouTube', 'Jio Hotstar', 'Prime Video', 'Netflix'],
-    images: [hotstart,prime,netflix,youtube],
+    images: [youtube,hotstart,prime,netflix],
     imageAspect: 'portrait',
     imageFit: 'cover',
     accent: 'from-blue-600 to-cyan-500',
@@ -91,7 +91,7 @@ const services = [
   },
 ];
 
-const allowedIcons = ["Premium Apartment Screens","OTT Platform","Road Show Mobile Vans","Outdoor LED & Hoardings"];
+const allowedIcons = ["Premium Apartment Screens","OTT Platforms","Road Show Mobile Vans","Outdoor LED & Hoardings"];
 type Service = (typeof services)[number];
 
 export default function Services() {
