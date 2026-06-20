@@ -116,7 +116,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="mb-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+       <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {contactActions.map((item, index) => {
             const Icon = item.icon;
 
