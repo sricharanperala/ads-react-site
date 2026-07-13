@@ -8,6 +8,6 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  //  base: '/ads-react-site/',
-     base: '/',
+   base: '/ads-react-site/',
+    //  base: '/',
 })
