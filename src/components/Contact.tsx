@@ -136,7 +136,7 @@ export default function Contact() {
                 }}
               >
                 <div className="mb-5 flex items-start justify-between gap-4">
-                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r ${item.accent} text-white shadow-sm transition duration-300 group-hover:scale-105`}>
+                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r ${item.accent} text-white shadow-sm transition duration-300 group-hover:scale-110 group-hover:rotate-3 transform`}>
                     <Icon className="h-6 w-6" />
                   </span>
                   {item.external && (

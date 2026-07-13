@@ -1,7 +1,61 @@
 // import { ArrowRight, Play } from 'lucide-react';
 import Heropic from '../assets/hero1.jpeg';
+import { useState, useEffect, useRef } from 'react';
+
+function useCounter(end: number, duration: number = 1000) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      setCount(Math.floor(progress * end));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isVisible, end, duration]);
+
+  return { count, ref };
+}
 
 export default function Hero() {
+  const campaigns = useCounter(20);
+  const clients = useCounter(100);
+  const years = useCounter(10);
+  const reach = useCounter(570000);
+  const screens = useCounter(60);
+  const locations = useCounter(24);
+
   return (
     <section id="hero" className="min-h-screen flex items-center pt-16 bg-white overflow-hidden relative">
       <div className="absolute inset-x-0 top-16 h-px bg-gradient-to-r from-transparent via-red-200 to-transparent"></div>
@@ -39,39 +93,39 @@ export default function Hero() {
             </div> */}
 
             <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3">
-              <div className="border-l-2 border-red-500 pl-4">
+              <div className="border-l-2 border-red-500 pl-4" ref={campaigns.ref}>
                 <p className="text-3xl font-bold text-red-600">
-                  20+
+                  {campaigns.count}+
                 </p>
                 <p className="text-gray-600">Active Campaigns</p>
               </div>
-              <div className="border-l-2 border-blue-500 pl-4">
+              <div className="border-l-2 border-blue-500 pl-4" ref={clients.ref}>
                 <p className="text-3xl font-bold text-blue-600">
-                  100+
+                  {clients.count}+
                 </p>
                 <p className="text-gray-600">Satisfied Clients</p>
               </div>
-              <div className="border-l-2 border-teal-500 pl-4">
+              <div className="border-l-2 border-teal-500 pl-4" ref={years.ref}>
                 <p className="text-3xl font-bold text-teal-600">
-                  10+
+                  {years.count}+
                 </p>
                 <p className="text-gray-600">Years Experience</p>
               </div>
-               <div className="border-l-2 border-amber-500 pl-4">
+               <div className="border-l-2 border-amber-500 pl-4" ref={reach.ref}>
                 <p className="text-3xl font-bold text-amber-600">
-                  5.7L+
+                  {(reach.count / 100000).toFixed(1)}L+
                 </p>
                 <p className="text-gray-600">Daily Reach</p>
               </div>
-               <div className="border-l-2 border-fuchsia-500 pl-4">
+               <div className="border-l-2 border-fuchsia-500 pl-4" ref={screens.ref}>
                 <p className="text-3xl font-bold text-fuchsia-600">
-                  60
+                  {screens.count}
                 </p>
                 <p className="text-gray-600">Digital Screens</p>
               </div>
-               <div className="border-l-2 border-emerald-500 pl-4">
+               <div className="border-l-2 border-emerald-500 pl-4" ref={locations.ref}>
                 <p className="text-3xl font-bold text-emerald-600">
-                  24
+                  {locations.count}
                 </p>
                 <p className="text-gray-600">Prime Locations</p>
               </div>

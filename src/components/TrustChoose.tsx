@@ -158,7 +158,7 @@ export default function TrustChoose() {
               {marqueeBrands.map((brand, index) => (
                 <div
                   key={`${brand.name}-${index}`}
-                  className="flex h-28 w-28 shrink-0 items-center justify-center px-2 text-center text-[11px] font-bold uppercase tracking-wide text-gray-700 transition duration-300"
+                  className="flex h-28 w-28 shrink-0 items-center justify-center px-2 text-center text-[11px] font-bold uppercase tracking-wide text-gray-700 transition duration-300 hover:scale-110 transform"
                 >
                   {'logo' in brand ? (
                     <span className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-sm ring-1 ring-gray-200">

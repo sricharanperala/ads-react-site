@@ -29,7 +29,7 @@ export default function Navigation({
             <img
               src={logo}
               alt="Naik Media Ads"
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain transition duration-300 hover:scale-105 transform"
             />
           </div>
 
@@ -38,7 +38,7 @@ export default function Navigation({
               <a
                 key={link.label}
                 href={link.href}
-                className="text-gray-700 hover:text-red-600 transition duration-300 font-medium"
+                className="text-gray-700 hover:text-red-600 transition duration-300 font-medium hover:scale-105 transform"
               >
                 {link.label}
               </a>

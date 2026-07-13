@@ -49,7 +49,7 @@ export default function AboutUs() {
                 return (
                   <div
                     key={item.title}
-                    className="flex gap-4"
+                    className="flex gap-4 transition duration-300 hover:scale-105 transform"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r ${item.accent} text-white`}>

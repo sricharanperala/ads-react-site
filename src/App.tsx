@@ -5,6 +5,7 @@ import Services from './components/Services';
 import TrustChoose from './components/TrustChoose';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Navigation from './components/Navigation';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
         <Contact />
+        <FloatingWhatsApp />
 
         <footer className="border-t border-gray-200 bg-white py-12 text-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,17 +38,17 @@ function App() {
               <div>
                 <h4 className="font-semibold mb-4 text-gray-950">Services</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li><a href="#services" className="hover:text-red-600 transition">Digital Ads</a></li>
-                  <li><a href="#services" className="hover:text-blue-600 transition">Video Production</a></li>
-                  <li><a href="#services" className="hover:text-teal-600 transition">Branding</a></li>
+                  <li><a href="#services" className="hover:text-red-600 transition hover:translate-x-1 inline-block transform">Digital Ads</a></li>
+                  <li><a href="#services" className="hover:text-blue-600 transition hover:translate-x-1 inline-block transform">Video Production</a></li>
+                  <li><a href="#services" className="hover:text-teal-600 transition hover:translate-x-1 inline-block transform">Branding</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold mb-4 text-gray-950">Company</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li><a href="#about-us" className="hover:text-red-600 transition">About</a></li>
-                  <li><a href="#" className="hover:text-blue-600 transition">Blog</a></li>
-                  <li><a href="#contact" className="hover:text-teal-600 transition">Contact</a></li>
+                  <li><a href="#about-us" className="hover:text-red-600 transition hover:translate-x-1 inline-block transform">About</a></li>
+                  <li><a href="#" className="hover:text-blue-600 transition hover:translate-x-1 inline-block transform">Blog</a></li>
+                  <li><a href="#contact" className="hover:text-teal-600 transition hover:translate-x-1 inline-block transform">Contact</a></li>
                 </ul>
               </div>
               <div>
