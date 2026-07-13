@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 const primaryPhone = '+919849138850';
-const secondaryPhone = '+91 70135 54415';
+const secondaryPhone = '+917013554415';
 const whatsappNumber = '919849138850';
 const instagramUrl = 'https://www.instagram.com/naikmediaads/';
 const mapUrl = 'https://maps.app.goo.gl/9iY7pUqj2J1tFcry7';

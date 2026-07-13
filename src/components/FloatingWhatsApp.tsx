@@ -1,7 +1,7 @@
 import { Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
-const primaryPhone = '+919849138850';
+const primaryPhone = '+917013554415';
 const whatsappNumber = '919849138850';
 
 export default function FloatingWhatsApp() {
