@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 const primaryPhone = '+919849138850';
-const secondaryPhone = '+917013554415';
+const secondaryPhone = '+91 7013554415';
 const whatsappNumber = '919849138850';
 const instagramUrl = 'https://www.instagram.com/naikmediaads/';
 const mapUrl = 'https://maps.app.goo.gl/9iY7pUqj2J1tFcry7';
@@ -149,6 +149,7 @@ export default function Contact() {
                 <p className="mb-4 text-sm leading-6 text-gray-600">
                   {item.description}
                 </p>
+                {item.label === "Call Us" ?
                 <a
                   href={`tel:${item.value.replace(/\s+/g, '')}`}
                   className={`font-semibold ${item.text} block hover:underline`}
@@ -156,6 +157,13 @@ export default function Contact() {
                 >
                   {item.value}
                 </a>
+                :
+                  <p
+                    className={`font-semibold ${item.text} block`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {item.value}
+                  </p>}
                 {item.secondaryPhone && (
                   <a
                     href={`tel:${item.secondaryPhone.replace(/\s+/g, '')}`}
