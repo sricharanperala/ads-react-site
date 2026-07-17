@@ -3,16 +3,14 @@ import { MonitorPlay, RadioTower } from 'lucide-react';
 import netflix from "../assets/clientIcons/netflix.png"
 import prime from "../assets/clientIcons/prime.png"
 import hotstar from "../assets/clientIcons/jiohotstar.png"
-import childneroVideo from "../assets/videos/childnero.mp4";
 
-const video1 = childneroVideo;
 
 const tvAds = [
   {
     title: 'Restaurant Offer Loop',
     location: 'Food courts & cafes',
     duration: '12 sec',
-    src: video1,
+    src: 'https://res.cloudinary.com/fb1v1oym/video/upload/naikads.mp4',
     ottLogo: prime,
     ott: 'Prime Video'
   },
