@@ -26,7 +26,42 @@
       gtag('js', new Date());
       gtag('config', 'G-SXS5THXNCZ');
     </script>
-    <script type="module" crossorigin src="/ads-react-site/assets/index-_ef13tHD.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18260216454"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18260216454');
+    </script>
+
+    <script>
+      document.addEventListener('click', function (e) {
+        const target = e.target;
+        const link = target instanceof Element ? target.closest('a[href]') : null;
+
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+
+        if (href.startsWith('https://wa.me/')) {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'whatsapp_click' });
+        }
+
+        if (href === 'tel:+919849138850') {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'call_us' });
+        }
+
+        if (href === 'tel:+917013554415') {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'call_us2' });
+        }
+      });
+    </script>
+    <script type="module" crossorigin src="/ads-react-site/assets/index-C7ziLdt5.js"></script>
     <link rel="stylesheet" crossorigin href="/ads-react-site/assets/index-CWMbgMzN.css">
   </head>
   <body>
