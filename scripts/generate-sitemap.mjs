@@ -28,17 +28,8 @@ ${routes
 </urlset>
 `;
 
-const robots = `User-agent: *
-Allow: /
-
-Sitemap: ${siteUrl}/sitemap.xml
-`;
-
 await mkdir(publicDir, { recursive: true });
-await Promise.all([
-  writeFile(path.join(publicDir, 'sitemap.xml'), sitemap),
-  writeFile(path.join(publicDir, 'robots.txt'), robots),
-]);
+await writeFile(path.join(publicDir, 'sitemap.xml'), sitemap);
 
 function normalizeSiteUrl(url) {
   return url.replace(/\/+$/, '');
