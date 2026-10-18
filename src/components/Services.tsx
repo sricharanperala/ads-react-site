@@ -13,6 +13,9 @@ import hotstart from "../assets/services/OTT/jiohotstar.jpeg"
 import prime from "../assets/services/OTT/prime.jpeg"
 import netflix from "../assets/services/OTT/netflix.jpeg" 
 import youtube from "../assets/services/OTT/youtube.jpeg"
+import meta from "../assets/services/OTT/meta.jpeg"
+import chatgpt from "../assets/services/OTT/chatgpt.jpeg"
+import snapchat from "../assets/services/OTT/snapchat.jpeg"
 
 
 const services = [
@@ -31,9 +34,9 @@ const services = [
   {
     icon: Video,
     title: 'OTT Platforms',
-    description: 'Captivate a captive audience. Dominate the big screen in cinema theaters and targeted advertisements on leading OTT platforms.',
-    features: ['YouTube', 'Jio Hotstar', 'Prime Video', 'Netflix'],
-    images: [youtube,hotstart,prime,netflix],
+    description: 'Put your brand in front of the right audience across leading digital, social media and OTT platforms. From YouTube, JioHotstar, Meta ads, ChatGPT, Snapchat, Prime Video and Netflix, we help your business build visibility, reach more customers and create stronger brand awareness.',
+    features: ['YouTube', 'Jio Hotstar','Meta Ads', 'ChatGPT', 'Snapchat','Prime Video', 'Netflix'],
+    images: [youtube, hotstart, meta, chatgpt, snapchat,prime, netflix ],
     imageAspect: 'portrait',
     imageFit: 'cover',
     accent: 'from-blue-600 to-cyan-500',
