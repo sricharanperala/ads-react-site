@@ -3,7 +3,7 @@ import { BarChart3, CheckCircle2, ChevronLeft, ChevronRight, Palette, Smartphone
 import heroImage from '../assets/hero.png';
 // import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
-import TvAds from './TvAds';
+// import TvAds from './TvAds';
 // import apartmentImage1 from "../assets/services/apartment/apartment1.jpeg"
 import apartmentImage2 from "../assets/services/apartment/apartment2.jpeg"
 import apartmentImage3 from "../assets/services/apartment/apartment3.jpeg"
