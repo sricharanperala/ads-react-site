@@ -33,7 +33,7 @@ const services = [
   },
   {
     icon: Video,
-    title: 'OTT Platforms',
+    title: 'Social media and OTT platforms',
     description: 'Put your brand in front of the right audience across leading digital, social media and OTT platforms. From YouTube, JioHotstar, Meta ads, ChatGPT, Snapchat, Prime Video and Netflix, we help your business build visibility, reach more customers and create stronger brand awareness.',
     features: ['YouTube', 'Jio Hotstar','Meta Ads', 'ChatGPT', 'Snapchat','Prime Video', 'Netflix'],
     images: [youtube, hotstart, meta, chatgpt, snapchat,prime, netflix ],
@@ -94,7 +94,7 @@ const services = [
   },
 ];
 
-const allowedIcons = ["Premium Apartment Screens","OTT Platforms","Road Show Mobile Vans","Outdoor LED & Hoardings"];
+const allowedIcons = ["Premium Apartment Screens","Social media and OTT platforms","Road Show Mobile Vans","Outdoor LED & Hoardings"];
 type Service = (typeof services)[number];
 
 export default function Services() {
@@ -210,7 +210,7 @@ export default function Services() {
           })}
         </div>
       </div>
-      <TvAds />
+      {/* <TvAds /> */}
 
       {selectedService && (
         <div
