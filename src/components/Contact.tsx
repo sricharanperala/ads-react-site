@@ -119,22 +119,11 @@ export default function Contact() {
        <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {contactActions.map((item, index) => {
             const Icon = item.icon;
+            const cardClassName = `group animate-fadeInUp rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg ${item.hover}`;
+            const cardStyle = { animationDelay: `${index * 0.08}s` };
 
-            return (
-              <a
-                key={item.label}
-                href={item.href}
-                target={item.external ? '_blank' : undefined}
-                rel={item.external ? 'noreferrer' : undefined}
-                className={`group animate-fadeInUp rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg ${item.hover}`}
-                style={{ animationDelay: `${index * 0.08}s` }}
-                aria-label={`${item.label}: ${item.value}`}
-                onClick={(e) => {
-                  if (item.secondaryPhone && e.target !== e.currentTarget) {
-                    e.preventDefault();
-                  }
-                }}
-              >
+            const cardContent = (
+              <>
                 <div className="mb-5 flex items-start justify-between gap-4">
                   <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r ${item.accent} text-white shadow-sm transition duration-300 group-hover:scale-110 group-hover:rotate-3 transform`}>
                     <Icon className="h-6 w-6" />
@@ -149,33 +138,54 @@ export default function Contact() {
                 <p className="mb-4 text-sm leading-6 text-gray-600">
                   {item.description}
                 </p>
-                {item.label === "Call Us" ?
-                <a
-                  href={`tel:${item.value.replace(/\s+/g, '')}`}
-                  className={`font-semibold ${item.text} block hover:underline`}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {item.value}
-                </a>
-                :
-                  <p
-                    className={`font-semibold ${item.text} block`}
-                    onClick={(e) => e.stopPropagation()}
-                  >
+                {item.secondaryPhone ? (
+                  <>
+                    <a
+                      href={`tel:${item.value.replace(/\s+/g, '')}`}
+                      className={`font-semibold ${item.text} block hover:underline`}
+                    >
+                      {item.value}
+                    </a>
+                    <a
+                      href={`tel:${item.secondaryPhone.replace(/\s+/g, '')}`}
+                      className={`font-semibold ${item.text} block hover:underline mt-1`}
+                    >
+                      {item.secondaryPhone}
+                    </a>
+                  </>
+                ) : (
+                  <p className={`font-semibold ${item.text} block`}>
                     {item.value}
-                  </p>}
-                {item.secondaryPhone && (
-                  <a
-                    href={`tel:${item.secondaryPhone.replace(/\s+/g, '')}`}
-                    className={`font-semibold ${item.text} block hover:underline mt-1`}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {item.secondaryPhone}
-                  </a>
+                  </p>
                 )}
                 <p className="mt-1 text-sm text-gray-500">
                   {item.supporting}
                 </p>
+              </>
+            );
+
+            // A card with two phone numbers can't itself be a link: <a> inside <a> is
+            // invalid HTML (browsers split it apart, which also breaks React hydration).
+            // So that card is a plain box and each number is its own tel: link.
+            if (item.secondaryPhone) {
+              return (
+                <div key={item.label} className={cardClassName} style={cardStyle}>
+                  {cardContent}
+                </div>
+              );
+            }
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noreferrer' : undefined}
+                className={cardClassName}
+                style={cardStyle}
+                aria-label={`${item.label}: ${item.value}`}
+              >
+                {cardContent}
               </a>
             );
           })}
