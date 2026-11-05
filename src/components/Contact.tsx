@@ -9,7 +9,7 @@ const primaryPhone = '+919849138850';
 const secondaryPhone = '+91 7013554415';
 const whatsappNumber = '919849138850';
 const instagramUrl = 'https://www.instagram.com/naikmediaads/';
-const mapUrl = 'https://maps.app.goo.gl/9iY7pUqj2J1tFcry7';
+const mapUrl = 'https://maps.app.goo.gl/pe9wUiuHpZ33QcGD8?g_st=iwb';
 
 const contactActions = [
   {
