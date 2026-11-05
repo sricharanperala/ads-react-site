@@ -49,12 +49,12 @@ function useCounter(end: number, duration: number = 1000) {
 }
 
 export default function Hero() {
-  const campaigns = useCounter(20);
+  const campaigns = useCounter(30);
   const clients = useCounter(100);
   const years = useCounter(10);
   const reach = useCounter(570000);
-  const screens = useCounter(60);
-  const locations = useCounter(24);
+  const screens = useCounter(110);
+  const apartments = useCounter(55);
 
   return (
     <section id="hero" className="min-h-screen flex items-center pt-16 bg-white overflow-hidden relative">
@@ -123,11 +123,11 @@ export default function Hero() {
                 </p>
                 <p className="text-gray-600">Digital Screens</p>
               </div>
-               <div className="border-l-2 border-emerald-500 pl-4" ref={locations.ref}>
-                <p className="text-3xl font-bold text-emerald-600">
-                  {locations.count}
+              <div className="border-l-2 border-indigo-500 pl-4" ref={apartments.ref}>
+                <p className="text-3xl font-bold text-indigo-600">
+                  {apartments.count}
                 </p>
-                <p className="text-gray-600">Prime Locations</p>
+                <p className="text-gray-600">Premium Apartments</p>
               </div>
             </div>
           </div>

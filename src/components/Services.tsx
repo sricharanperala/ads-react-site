@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BarChart3, CheckCircle2, ChevronLeft, ChevronRight, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
+import { BarChart3, Building2, CheckCircle2, ChevronLeft, ChevronRight, MapPin, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
 import heroImage from '../assets/hero.png';
 // import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
@@ -16,14 +16,20 @@ import youtube from "../assets/services/OTT/youtube.jpeg"
 import meta from "../assets/services/OTT/meta.jpeg"
 import chatgpt from "../assets/services/OTT/chatgpt.jpeg"
 import snapchat from "../assets/services/OTT/snapchat.jpeg"
-
+import amazonPublish from "../assets/publish icon/Amazon-publish.png"
+import jioPublish from "../assets/publish icon/jio-publish.png"
 
 const services = [
   {
     icon: Tv,
-    title: 'Premium Apartment Screens',
+    title: 'Premium Apartment Screens in Warangal & Khammam',
     description: '32-inch high-definition digital screens strategically placed in premium residential lift areas for maximum daily visibility.',
     features: ['32" LED Screen', '⁠Daily 300+ slots \u00A0\u00A0\u00A0 in 1 screen', '⁠10 seconds  \u00A0\u00A0\u00A0\u00A0\u00A0  video / image', '⁠Every 3 minutes \u00A0\u00A0\u00A0\u00A0\u00A0\ 1 slot', '⁠7am to 10pm'],
+    stats: [
+      { value: '110', label: 'Screens', detail: '55 premium apartments', icon: Building2 },
+      { value: '60', label: 'Screens', detail: 'Warangal', icon: MapPin },
+      { value: '50', label: 'Screens', detail: 'Khammam', icon: MapPin },
+    ],
     images: [apartmentImage2, apartmentImage3],
     imageAspect: 'portrait',
     accent: 'from-red-600 to-orange-500',
@@ -94,7 +100,7 @@ const services = [
   },
 ];
 
-const allowedIcons = ["Premium Apartment Screens","Social media and OTT platforms","Road Show Mobile Vans","Outdoor LED & Hoardings"];
+const allowedIcons = ["Premium Apartment Screens in Warangal & Khammam","Social media and OTT platforms","Road Show Mobile Vans","Outdoor LED & Hoardings"];
 type Service = (typeof services)[number];
 
 export default function Services() {
@@ -208,6 +214,33 @@ export default function Services() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-20 text-center animate-fadeInUp">
+          <h2 className="text-4xl md:text-5xl font-bold uppercase leading-tight text-black">
+            Publish Your Brand in
+          </h2>
+          <div className="mx-auto mt-4 mb-10 h-1 w-20 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-blue-600" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-6xl mx-auto">
+            {[
+              { src: amazonPublish, alt: 'Amazon Prime Video' },
+              { src: jioPublish, alt: 'JioHotstar' },
+            ].map((platform) => (
+              <div
+                key={platform.alt}
+                className="group rounded-2xl bg-[#f4f2ee] p-1.5 shadow-md ring-1 ring-black/5 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
+                <div className="aspect-video overflow-hidden rounded-xl bg-white ring-1 ring-black/5">
+                  <img
+                    src={platform.src}
+                    alt={platform.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {/* <TvAds /> */}
@@ -326,6 +359,29 @@ export default function Services() {
                   {selectedService.description}
                 </p>
 
+                {'stats' in selectedService && selectedService.stats && (
+                  <div className="mb-6 grid grid-cols-3 gap-3">
+                    {selectedService.stats.map((stat) => {
+                      const StatIcon = stat.icon;
+                      return (
+                        <div
+                          key={stat.detail}
+                          className={`rounded-xl ${selectedService.tint} p-3 text-center`}
+                        >
+                          <p className={`text-2xl font-extrabold sm:text-3xl ${selectedService.text}`}>
+                            {stat.value}
+                          </p>
+                          <p className="text-sm font-semibold text-gray-900">{stat.label}</p>
+                          <p className="mt-1.5 inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-xs font-bold leading-5 text-gray-900 shadow-sm sm:text-sm">
+                            <StatIcon className={`h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4 ${selectedService.text}`} aria-hidden="true" />
+                            {stat.detail}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
                 <div className="mb-8">
                   {/* <h4 className="mb-4 text-lg font-bold text-gray-900">
                     Included Features
@@ -343,13 +399,13 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div className={`rounded-xl ${selectedService.tint} p-5`}>
+                {/* <div className={`rounded-xl ${selectedService.tint} p-5`}>
                   <h4 className="mb-2 font-bold text-gray-900">Why it works</h4>
                   <p className="text-sm leading-6 text-gray-600">
                     This option gives your campaign repeated visibility in high-attention spaces,
                     making it easier for customers to notice, remember, and respond to your brand.
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

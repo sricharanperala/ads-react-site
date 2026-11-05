@@ -48,6 +48,7 @@ import RoyalOakFurniture from "../assets/clientIcons/royaloak.png"
 import SkillStorkSchool from "../assets/clientIcons/skillstork.png"
 import AnjaliKidneyCare from "../assets/clientIcons/anjali-kidney.avif"
 import DrSaiCharanKidsNeuro from "../assets/clientIcons/dr.saichandra.jpg"
+import venus from "../assets/clientIcons/venus.png"
 
 
 const trustedBy = [
@@ -99,7 +100,8 @@ const trustedBy = [
   { name: 'Anjali Kidney Care',logo: AnjaliKidneyCare },
   { name: 'EuroKids School',logo: Eurokids },
   { name: 'Royal Enfield',logo: RoyalEnfield },
-  { name: 'Dr Sai Charan Kids Neuro',logo: DrSaiCharanKidsNeuro }
+  { name: 'Dr Sai Charan Kids Neuro',logo: DrSaiCharanKidsNeuro },
+  { name: 'Venus',logo: venus }
 ];
 
 const marqueeBrands = [...trustedBy, ...trustedBy];
