@@ -16,8 +16,10 @@ import youtube from "../assets/services/OTT/youtube.jpeg"
 import meta from "../assets/services/OTT/meta.jpeg"
 import chatgpt from "../assets/services/OTT/chatgpt.jpeg"
 import snapchat from "../assets/services/OTT/snapchat.jpeg"
+import spotifySocial from "../assets/services/OTT/spotify-social.jpeg"
 import amazonPublish from "../assets/publish icon/Amazon-publish.png"
 import jioPublish from "../assets/publish icon/jio-publish.png"
+import spotifyPublish from "../assets/publish icon/spotify-publish.jpeg"
 
 const services = [
   {
@@ -40,9 +42,9 @@ const services = [
   {
     icon: Video,
     title: 'Social media and OTT platforms',
-    description: 'Put your brand in front of the right audience across leading digital, social media and OTT platforms. From YouTube, JioHotstar, Meta ads, ChatGPT, Snapchat, Prime Video and Netflix, we help your business build visibility, reach more customers and create stronger brand awareness.',
-    features: ['YouTube', 'Jio Hotstar','Meta Ads', 'ChatGPT', 'Snapchat','Prime Video', 'Netflix'],
-    images: [youtube, hotstart, meta, chatgpt, snapchat,prime, netflix ],
+    description: 'Put your brand in front of the right audience across leading digital, social media and OTT platforms. From YouTube, JioHotstar, Meta ads, Spotify, ChatGPT, Snapchat, Prime Video and Netflix, we help your business build visibility, reach more customers and create stronger brand awareness.',
+    features: ['YouTube', 'Jio Hotstar','Meta Ads', 'Spotify', 'ChatGPT', 'Snapchat','Prime Video', 'Netflix'],
+    images: [youtube, hotstart, meta, spotifySocial, chatgpt, snapchat,prime, netflix ],
     imageAspect: 'portrait',
     imageFit: 'cover',
     accent: 'from-blue-600 to-cyan-500',
@@ -221,10 +223,11 @@ export default function Services() {
             Publish Your Brand in
           </h2>
           <div className="mx-auto mt-4 mb-10 h-1 w-20 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-blue-600" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
             {[
               { src: amazonPublish, alt: 'Amazon Prime Video' },
               { src: jioPublish, alt: 'JioHotstar' },
+              { src: spotifyPublish, alt: 'Spotify' },
             ].map((platform) => (
               <div
                 key={platform.alt}
