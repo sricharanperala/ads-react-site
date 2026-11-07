@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BarChart3, Building2, CheckCircle2, ChevronLeft, ChevronRight, MapPin, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
+import { BarChart3, CheckCircle2, ChevronLeft, ChevronRight, Palette, Smartphone, Tv, Video, X, Zap } from 'lucide-react';
 import heroImage from '../assets/hero.png';
 // import heroPic from '../assets/HeroPic.jpeg';
 import locationImage from '../assets/location.jpeg';
@@ -28,9 +28,9 @@ const services = [
     description: '32-inch high-definition digital screens strategically placed in premium residential lift areas for maximum daily visibility.',
     features: ['32" LED Screen', '⁠Daily 300+ slots \u00A0\u00A0\u00A0 in 1 screen', '⁠10 seconds  \u00A0\u00A0\u00A0\u00A0\u00A0  video / image', '⁠Every 3 minutes \u00A0\u00A0\u00A0\u00A0\u00A0\ 1 slot', '⁠7am to 10pm'],
     stats: [
-      { value: '110', label: 'Screens', detail: '55 premium apartments', icon: Building2 },
-      { value: '60', label: 'Screens', detail: 'Warangal', icon: MapPin },
-      { value: '50', label: 'Screens', detail: 'Khammam', icon: MapPin },
+      { value: '110', label: 'Screens', detail: '55 premium apartments' },
+      { value: '60', label: 'Screens', detail: 'Warangal' },
+      { value: '50', label: 'Screens', detail: 'Khammam' },
     ],
     images: [apartmentImage2, apartmentImage3],
     imageAspect: 'portrait',
@@ -223,15 +223,17 @@ export default function Services() {
             Publish Your Brand in
           </h2>
           <div className="mx-auto mt-4 mb-10 h-1 w-20 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-blue-600" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-6xl mx-auto">
             {[
               { src: amazonPublish, alt: 'Amazon Prime Video' },
               { src: jioPublish, alt: 'JioHotstar' },
               { src: spotifyPublish, alt: 'Spotify' },
-            ].map((platform) => (
+            ].map((platform, index) => (
               <div
                 key={platform.alt}
-                className="group rounded-2xl bg-[#f4f2ee] p-1.5 shadow-md ring-1 ring-black/5 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className={`group rounded-2xl bg-[#f4f2ee] p-1.5 shadow-md ring-1 ring-black/5 transition duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                  index === 2 ? 'sm:col-span-2 sm:mx-auto sm:w-[calc(50%-1.25rem)]' : ''
+                }`}
               >
                 <div className="aspect-video overflow-hidden rounded-xl bg-white ring-1 ring-black/5">
                   <img
@@ -364,24 +366,20 @@ export default function Services() {
 
                 {'stats' in selectedService && selectedService.stats && (
                   <div className="mb-6 grid grid-cols-3 gap-3">
-                    {selectedService.stats.map((stat) => {
-                      const StatIcon = stat.icon;
-                      return (
-                        <div
-                          key={stat.detail}
-                          className={`rounded-xl ${selectedService.tint} p-3 text-center`}
-                        >
-                          <p className={`text-2xl font-extrabold sm:text-3xl ${selectedService.text}`}>
-                            {stat.value}
-                          </p>
-                          <p className="text-sm font-semibold text-gray-900">{stat.label}</p>
-                          <p className="mt-1.5 inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-xs font-bold leading-5 text-gray-900 shadow-sm sm:text-sm">
-                            <StatIcon className={`h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4 ${selectedService.text}`} aria-hidden="true" />
-                            {stat.detail}
-                          </p>
-                        </div>
-                      );
-                    })}
+                    {selectedService.stats.map((stat) => (
+                      <div
+                        key={stat.detail}
+                        className={`rounded-xl ${selectedService.tint} p-3 text-center`}
+                      >
+                        <p className={`text-2xl font-extrabold sm:text-3xl ${selectedService.text}`}>
+                          {stat.value}
+                        </p>
+                        <p className="text-sm font-semibold text-gray-900">{stat.label}</p>
+                        <p className="mt-1.5 text-xs font-bold leading-5 text-gray-900 sm:text-sm">
+                          {stat.detail}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 )}
 
