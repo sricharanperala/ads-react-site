@@ -66,9 +66,9 @@ function App() {
             className="pointer-events-none mt-12 select-none overflow-hidden text-center"
           >
             <span className="inline-flex gap-[0.18em] whitespace-nowrap text-[clamp(1.75rem,11.25vw,9.5rem)] font-black uppercase leading-[1.1] tracking-tighter">
-              <span className="bg-gradient-to-b from-[#f2a3a3] to-[#fdf0f0] bg-clip-text text-transparent">Naik</span>
-              <span className="bg-gradient-to-b from-[#a3b3dc] to-[#eff2fa] bg-clip-text text-transparent">Media</span>
-              <span className="bg-gradient-to-b from-[#f8c08c] to-[#fef5ec] bg-clip-text text-transparent">Ads</span>
+              <span className="-mr-[0.1em] bg-gradient-to-b from-[#f2a3a3] to-[#fdf0f0] bg-clip-text pr-[0.1em] text-transparent">Naik</span>
+              <span className="-mr-[0.1em] bg-gradient-to-b from-[#a3b3dc] to-[#eff2fa] bg-clip-text pr-[0.1em] text-transparent">Media</span>
+              <span className="-mr-[0.1em] bg-gradient-to-b from-[#f8c08c] to-[#fef5ec] bg-clip-text pr-[0.1em] text-transparent">Ads</span>
             </span>
           </div>
                       <div className="border-t border-gray-200 pt-8 text-center text-gray-500">
