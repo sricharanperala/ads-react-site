@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Ad creative being designed on a design canvas">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ccfbf1"/>
+      <stop offset="1" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="poster" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d9488"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#134e4a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="345" cy="55" r="75" fill="#99f6e4" opacity="0.5"/>
+  <circle cx="40" cy="365" r="85" fill="#a7f3d0" opacity="0.55"/>
+
+  <!-- design app window -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="70" width="280" height="230" rx="18" fill="#ffffff"/>
+  </g>
+  <path d="M78 70h244a18 18 0 0 1 18 18v16H60V88a18 18 0 0 1 18-18z" fill="#f0fdfa"/>
+  <circle cx="82" cy="87" r="5" fill="#f87171"/>
+  <circle cx="98" cy="87" r="5" fill="#fbbf24"/>
+  <circle cx="114" cy="87" r="5" fill="#34d399"/>
+
+  <!-- tool palette -->
+  <rect x="74" y="118" width="28" height="166" rx="8" fill="#f0fdfa"/>
+  <rect x="81" y="128" width="14" height="14" rx="3" fill="#0d9488"/>
+  <rect x="81" y="154" width="14" height="14" rx="7" fill="#99f6e4"/>
+  <path d="M81 194l7-12 7 12z" fill="#99f6e4"/>
+  <rect x="81" y="206" width="14" height="4" rx="2" fill="#99f6e4"/>
+  <rect x="81" y="214" width="10" height="4" rx="2" fill="#99f6e4"/>
+
+  <!-- ad creative on canvas -->
+  <rect x="116" y="118" width="150" height="166" rx="10" fill="url(#poster)"/>
+  <circle cx="191" cy="178" r="40" fill="#ffffff" opacity="0.18"/>
+  <!-- megaphone -->
+  <rect x="170" y="184" width="8" height="16" rx="3" fill="#ffffff"/>
+  <path d="M166 168h12l26-16v52l-26-16h-12a5 5 0 0 1-5-5v-10a5 5 0 0 1 5-5z" fill="#ffffff"/>
+  <rect x="160" y="168" width="7" height="20" rx="3" fill="url(#brand)"/>
+  <path d="M211 168q6 10 0 20M218 160q12 18 0 36" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <rect x="132" y="222" width="118" height="10" rx="5" fill="#ffffff"/>
+  <rect x="132" y="238" width="84" height="8" rx="4" fill="#ffffff" opacity="0.7"/>
+  <rect x="132" y="256" width="58" height="18" rx="9" fill="url(#brand)"/>
+
+  <!-- selection box -->
+  <rect x="111" y="113" width="160" height="176" rx="12" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 5"/>
+  <g fill="#ffffff" stroke="#0f766e" stroke-width="2">
+    <rect x="107" y="109" width="8" height="8" rx="2"/>
+    <rect x="267" y="109" width="8" height="8" rx="2"/>
+    <rect x="107" y="285" width="8" height="8" rx="2"/>
+  </g>
+
+  <!-- colour panel -->
+  <rect x="284" y="118" width="42" height="166" rx="8" fill="#f0fdfa"/>
+  <circle cx="305" cy="140" r="9" fill="#0d9488"/>
+  <circle cx="305" cy="166" r="9" fill="#10b981"/>
+  <circle cx="305" cy="192" r="9" fill="#f97316"/>
+  <circle cx="305" cy="218" r="9" fill="#dc2626"/>
+  <line x1="293" y1="254" x2="317" y2="254" stroke="#99f6e4" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="309" cy="254" r="5" fill="#0d9488"/>
+
+  <!-- cursor -->
+  <path d="M262 268v32l8-8 6 13 7-3-6-12h11z" fill="#134e4a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- campaign launched card -->
+  <g filter="url(#shadow)">
+    <rect x="110" y="318" width="180" height="48" rx="14" fill="#ffffff"/>
+  </g>
+  <circle cx="135" cy="342" r="13" fill="url(#poster)"/>
+  <path d="M129 342l4 4 8-8" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="158" y="333" width="104" height="8" rx="4" fill="#134e4a" opacity="0.8"/>
+  <rect x="158" y="347" width="70" height="7" rx="3.5" fill="#99f6e4"/>
+
+  <!-- sparkles -->
+  <path d="M52 40q2 8 10 10q-8 2-10 10q-2-8-10-10q8-2 10-10z" fill="#f97316"/>
+  <path d="M356 312q1.6 6.4 8 8q-6.4 1.6-8 8q-1.6-6.4-8-8q6.4-1.6 8-8z" fill="#0d9488"/>
+</svg>
