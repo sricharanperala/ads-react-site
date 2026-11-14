@@ -3,7 +3,6 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 // import TvAds from './components/TvAds';
 import TrustChoose from './components/TrustChoose';
-import WhyNaikMedia from './components/WhyNaikMedia';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -23,7 +22,6 @@ function App() {
         <Services />
         {/* <TvAds /> */}
         <TrustChoose />
-        <WhyNaikMedia />
         <AboutUs />
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
