@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { SiMeta, SiOpenai, SiSnapchat, SiSpotify, SiYoutube } from 'react-icons/si';
 import apartmentImage from '../assets/services/apartment/apartment2.jpeg';
 import ottSocialImage from '../assets/services/all_ott.jpeg';
@@ -122,11 +122,12 @@ const reasons: Reason[] = [
 
 export default function WhyNaikMedia() {
   return (
-    <section id="why-naik-media" className="bg-white py-16 sm:py-24">
+    <section id="why-choose-us"className="bg-white py-16 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-8">
         {/* Left: sticky intro */}
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-600 ring-1 ring-orange-100">
+            <ShieldCheck className="h-4 w-4" />
             Why Choose Us
           </p>
           <h2 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
