@@ -71,14 +71,18 @@ export default function Hero() {
 
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-red-600 via-orange-500 to-blue-600 bg-clip-text text-transparent">
-                Transform Your Brand
+                Let’s Grow Digitally
               </span>
               <br />
-              with Premium Advertising
+              Together.
             </h1>
 
+            <p className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 leading-snug">
+              One Brand. Multiple Platforms. Limitless Advertising Opportunities.
+            </p>
+
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              We create stunning digital solutions and engaging multimedia content that captures attention and drives results. From LED screens to targeted campaigns, we bring your vision to life.
+              Strategy, creativity and marketing come together at Naik Media Ads. We help businesses build distinctive brands, reach the right audiences and grow through impactful advertising campaigns.
             </p>
 
             {/* <div className="flex flex-col sm:flex-row gap-4">
