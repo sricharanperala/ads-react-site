@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 // import TvAds from './components/TvAds';
 import TrustChoose from './components/TrustChoose';
+import WhyNaikMedia from './components/WhyNaikMedia';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -22,6 +23,7 @@ function App() {
         <Services />
         {/* <TvAds /> */}
         <TrustChoose />
+        <WhyNaikMedia />
         <AboutUs />
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
@@ -57,7 +59,19 @@ function App() {
                 <p className="text-gray-600">98491 38850 | 70135 54415</p>
               </div>
             </div>
-            <div className="border-t border-gray-200 pt-8 text-center text-gray-500">
+
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none mt-12 select-none overflow-hidden text-center"
+          >
+            <span className="inline-flex gap-[0.18em] whitespace-nowrap text-[clamp(1.75rem,11.25vw,9.5rem)] font-black uppercase leading-[1.1] tracking-tighter">
+              <span className="bg-gradient-to-b from-[#f2a3a3] to-[#fdf0f0] bg-clip-text text-transparent">Naik</span>
+              <span className="bg-gradient-to-b from-[#a3b3dc] to-[#eff2fa] bg-clip-text text-transparent">Media</span>
+              <span className="bg-gradient-to-b from-[#f8c08c] to-[#fef5ec] bg-clip-text text-transparent">Ads</span>
+            </span>
+          </div>
+                      <div className="border-t border-gray-200 pt-8 text-center text-gray-500">
               <p>&copy; 2026 Naik Media Ads. All rights reserved. | Digital Screens & Advertisement Solutions</p>
             </div>
           </div>

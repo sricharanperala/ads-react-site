@@ -10,8 +10,8 @@ export default function FloatingWhatsApp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      setShowScrollTop(scrollable > 0 && window.scrollY >= scrollable / 2);
+      // Show once the user has scrolled down past roughly the first screen.
+      setShowScrollTop(window.scrollY > window.innerHeight * 0.6);
     };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
