@@ -150,11 +150,11 @@ export default function WhyNaikMedia() {
         </div>
 
         {/* Right: stacking numbered cards */}
-        <div className="flex flex-col gap-10 lg:gap-24">
+        <div className="flex flex-col gap-10 lg:grid lg:auto-rows-fr lg:gap-24">
           {reasons.map((reason, index) => (
             <div
               key={reason.number}
-              className="border-t border-gray-200 bg-white lg:sticky lg:top-20"
+              className="flex flex-col border-t border-gray-200 bg-white lg:sticky lg:top-20"
               style={{ zIndex: index + 1 }}
             >
               <div
@@ -166,8 +166,8 @@ export default function WhyNaikMedia() {
                 </span>
               </div>
 
-              <article className={`flex flex-col gap-6 rounded-3xl ${reason.tint} p-6 sm:flex-row sm:gap-10 sm:p-11`}>
-                <div className="h-44 w-full shrink-0 overflow-hidden rounded-2xl shadow-sm sm:h-44 sm:w-44">
+              <article className={`flex flex-1 flex-col gap-6 rounded-3xl ${reason.tint} p-6 sm:flex-row sm:gap-10 sm:p-11`}>
+                <div className="mx-auto aspect-square w-full max-w-xs shrink-0 overflow-hidden rounded-2xl shadow-sm sm:mx-0 sm:w-52 sm:max-w-none sm:self-center lg:w-64">
                   <img
                     src={reason.image}
                     alt={reason.imageAlt}
