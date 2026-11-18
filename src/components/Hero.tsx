@@ -87,7 +87,7 @@ export default function Hero() {
 
             <a
               href="#services"
-              className="group inline-flex items-center gap-4 rounded-full bg-red-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-red-600/30 transition duration-300 hover:bg-red-700 hover:shadow-2xl hover:shadow-red-600/40"
+              className="group inline-flex items-center gap-3 rounded-full bg-red-600 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-red-600/30 transition duration-300 hover:bg-red-700 hover:shadow-2xl hover:shadow-red-600/40"
             >
              Explore our services
             </a>
