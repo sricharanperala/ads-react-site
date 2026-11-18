@@ -85,6 +85,13 @@ export default function Hero() {
               Strategy, creativity and marketing come together at Naik Media Ads. We help businesses build distinctive brands, reach the right audiences and grow through impactful advertising campaigns.
             </p>
 
+            <a
+              href="#services"
+              className="group inline-flex items-center gap-4 rounded-full bg-red-600 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-red-600/30 transition duration-300 hover:bg-red-700 hover:shadow-2xl hover:shadow-red-600/40"
+            >
+             Explore our services
+            </a>
+
             {/* <div className="flex flex-col sm:flex-row gap-4">
               <button className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition duration-300 flex items-center justify-center gap-2">
                 Get Started
